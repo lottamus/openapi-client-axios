@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import yargs from 'yargs';
 import indent from 'indent-string';
-import OpenAPIClientAxios, { Document, HttpMethod, Operation } from 'openapi-client-axios';
+import OpenAPIClientAxios, { Document, HttpMethod, Operation } from 'openapi-axios-client';
 import DtsGenerator, { ExportedType } from '@anttiviljami/dtsgenerator/dist/core/dtsGenerator';
 import RefParser from '@apidevtools/json-schema-ref-parser';
 import { parseSchema } from '@anttiviljami/dtsgenerator/dist/core/type';
@@ -76,7 +76,7 @@ export async function generateTypesForDocument(definition: Document | string, op
     '  UnknownParamsObject,',
     '  OperationResponse,',
     '  AxiosRequestConfig,',
-    `} from 'openapi-client-axios';`,
+    `} from 'openapi-axios-client';`,
   ].join('\n');
 
   return [imports, schemaTypes, operationTypings];
