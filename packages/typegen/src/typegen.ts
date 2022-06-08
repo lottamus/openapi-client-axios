@@ -59,13 +59,13 @@ export async function main() {
 }
 
 export async function generateTypesForDocument(definition: Document | string, opts: TypegenOptions) {
-  const rootSchema = await RefParser.bundle(definition);
+  const rootSchema = (await RefParser.bundle(definition)) as Document;
   const schema = parseSchema(rootSchema as any);
 
   const generator = new DtsGenerator([schema]);
   const schemaTypes = await generator.generate();
   const exportedTypes = generator.getExports();
-  const api = new OpenAPIClientAxios({ definition });
+  const api = new OpenAPIClientAxios({ definition: rootSchema });
   await api.init();
   const operationTypings = generateOperationMethodTypings(api, exportedTypes, opts);
 
