@@ -1,7 +1,7 @@
 {
   "name": "openapi-axios-client",
   "description": "JavaScript client library for consuming OpenAPI-enabled APIs with axios. Types included.",
-  "version": "5.2.2",
+  "version": "5.2.3",
   "author": "Viljami Kuosmanen <viljami@viljami.io>",
   "license": "MIT",
   "keywords": [
